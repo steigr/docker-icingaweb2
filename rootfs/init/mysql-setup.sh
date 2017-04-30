@@ -22,7 +22,7 @@ if [ $RETRY -le 0 ]; then
 fi
 
 # Init Database if necessary
-echo "CREATE DATABASE IF NOT EXISTS \"${DIRECTOR_DB}\";" | $MYSQLCMD
+echo "CREATE DATABASE IF NOT EXISTS \"${WEB_DB}\";" | $MYSQLCMD
 echo "CREATE DATABASE IF NOT EXISTS \"${DIRECTOR_DB}\";" | $MYSQLCMD
 MYSQLCMD="$MYSQLCMD $WEB_DB"
 if [ "$(echo "SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = \"$WEB_DB\";" | $MYSQLCMD -s)" -le 1 ]; then
